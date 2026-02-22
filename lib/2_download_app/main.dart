@@ -19,11 +19,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _currentIndex = 1;
 
-  final List<Widget> _pages =  [DownloadsScreen(), SettingsScreen()];
+  final List<Widget> _pages = [DownloadsScreen(), SettingsScreen()];
 
   @override
   Widget build(BuildContext context) {
-
     return ListenableBuilder(
       listenable: themeColorService,
       builder: (context, _) {
@@ -37,8 +36,14 @@ class _MyAppState extends State<MyApp> {
               onTap: (index) => setState(() => _currentIndex = index),
               selectedItemColor: themeColorService.color,
               items: [
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Downloads'),
-                BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Settings'),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Downloads',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.search),
+                  label: 'Settings',
+                ),
               ],
             ),
           ),
