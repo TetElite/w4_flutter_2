@@ -2,18 +2,6 @@ import 'package:flutter/material.dart';
 
 final colorService = ColorService();
 
-void main() {
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Home(),
-    ),
-  );
-}
-
-
-enum CardType { red, blue }
-
 class ColorService extends ChangeNotifier {
   int redTapCount = 0;
   int blueTapCount = 0;
@@ -29,7 +17,13 @@ class ColorService extends ChangeNotifier {
   }
 }
 
+// ─────────────────────────────────────────────
 
+void main() {
+  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: Home()));
+}
+
+enum CardType { red, blue }
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -99,7 +93,9 @@ class ColorTap extends StatelessWidget {
             : colorService.blueTapCount;
 
         return GestureDetector(
-          onTap: type == CardType.red ? colorService.tapRed : colorService.tapBlue,
+          onTap: type == CardType.red
+              ? colorService.tapRed
+              : colorService.tapBlue,
           child: Container(
             margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
