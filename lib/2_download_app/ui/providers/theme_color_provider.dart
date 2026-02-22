@@ -11,4 +11,18 @@ enum ThemeColor {
   Color get backgroundColor => color.withAlpha(100);
 }
 
-ThemeColor currentThemeColor = ThemeColor.blue;
+class ThemeColorService extends ChangeNotifier {
+  ThemeColor _current = ThemeColor.green;
+
+  ThemeColor get current => _current;
+  Color get color => _current.color;
+  Color get backgroundColor => _current.backgroundColor;
+
+  void setTheme(ThemeColor theme) {
+    if (_current == theme) return;
+    _current = theme;
+    notifyListeners();
+  }
+}
+
+final themeColorService = ThemeColorService();
