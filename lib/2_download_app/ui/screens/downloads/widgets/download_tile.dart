@@ -57,23 +57,22 @@ class DownloadTile extends StatelessWidget {
                         fontSize: 14,
                       ),
                     ),
-                    if (status == DownloadStatus.downloading) ...
-                      [
-                        const SizedBox(height: 6),
-                        LinearProgressIndicator(
-                          value: progress,
-                          backgroundColor: AppColors.greyLight,
-                          color: themeColorService.color,
+                    if (status == DownloadStatus.downloading) ...[
+                      const SizedBox(height: 6),
+                      LinearProgressIndicator(
+                        value: progress,
+                        backgroundColor: AppColors.greyLight,
+                        color: themeColorService.color,
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        '${(progress * 100).toInt()}%',
+                        style: AppTextStyles.label.copyWith(
+                          fontSize: 12,
+                          color: AppColors.textLight,
                         ),
-                        const SizedBox(height: 2),
-                        Text(
-                          '${(progress * 100).toInt()}%',
-                          style: AppTextStyles.label.copyWith(
-                            fontSize: 12,
-                            color: AppColors.textLight,
-                          ),
-                        ),
-                      ],
+                      ),
+                    ],
                   ],
                 ),
               ),
