@@ -42,7 +42,10 @@ class DownloadsScreen extends StatelessWidget {
 
               SizedBox(height: 50),
 
-              // TODO - Add the Download tiles
+ // TODO - Add the Download tiles
+              ...controllers.map(
+                (controller) => DownloadTile(controller: controller),
+              ),
             ],
           ),
         );
